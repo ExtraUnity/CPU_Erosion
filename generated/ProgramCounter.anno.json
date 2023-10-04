@@ -1,15 +1,5 @@
 [
   {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~ProgramCounter|ProgramCounter>io_programCounter",
-    "sources":[
-      "~ProgramCounter|ProgramCounter>io_stop",
-      "~ProgramCounter|ProgramCounter>io_jump",
-      "~ProgramCounter|ProgramCounter>io_programCounterJump",
-      "~ProgramCounter|ProgramCounter>io_run"
-    ]
-  },
-  {
     "class":"logger.LogLevelAnnotation",
     "globalLogLevel":{
       
