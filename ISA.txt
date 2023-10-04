@@ -1,0 +1,36 @@
+LI R0 0
+LI R2 19
+
+// for(x from 0 to 19)
+SUB R1 R1 R1        ; 'x = 0'
+JGT * R1 R2
+    // for(y from 0 to 19)
+    SUB R3 R3 R3    ; 'y = 0'
+    JGT ** R3 R2 
+        // if (x==0)
+        JNEQ *** R1 R0 
+            cmd
+            JR **
+        // if (y==0) ***
+        JNEQ **** R3 R0 
+            cmd
+            JR **
+        // if (x==19) ****
+        JNEQ *** R1 R2 
+            cmd
+            JR **
+        // if (y==19) *****
+        JNEQ *** R3 R2 
+            cmd
+            JR **
+    ADDI R4 
+    BRANCH 9
+    **
+ADDI R1 1
+BRANCH 4
+*
+
+___________________________________________________________________________________________________
+Added instructions 
+
+// jump if not equal        JNEQ 8 R2 R3 ;      if (R2 != R3) goto inst. 8
