@@ -12,4 +12,11 @@ class ProgramCounter extends Module {
 
   //Implement this module here (respect the provided interface, since it used by the tester)
 
+  val finReg = RegInit(0.U(16.W))
+
+  finReg := Mux(io.stop || (!io.run), finReg, Mux(io.jump, io.programCounterJump, finReg + 1.U))
+  io.programCounter := finReg
+
+  //io.programCounter := Mux(io.stop || (!io.run), finReg, Mux(io.jump, io.programCounterJump, finReg + 1))
+
 }
