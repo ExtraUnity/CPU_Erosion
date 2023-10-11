@@ -1,22 +1,25 @@
 LI R0 0                         ; constant 0
-LI R2 19                        ; constant 19
+LI R1 19                        ; constant 19
 
-SUB R1 R1 R1                    ; 'x = 0'
-JGT * R1 R2                     ; 'for(x from 0 to 19)'
+SUB R2 R2 R2                    ; 'x = 0'
+JGT * R2 R1                     ; 'for(x from 0 to 19)'
     SUB R3 R3 R3                ; 'y = 0'
-    JGT ** R3 R2                ; 'for(y from 0 to 19)'
+    JGT ** R3 R1                ; 'for(y from 0 to 19)'
 
                                 ; Processing border pixels        
-        JNEQ *** R1 R0          ; if (x==0)
-            cmd
+        JNEQ *** R2 R0          ; if (x==0)
+            MULI R4 R3 20       ; 'temp = y*20'
+            ADD R4 R4 R2        ; 'temp += x'
+            ADDI R4 R4 400      ; 'temp += 400'
+            SD R0 R4            ; 'pixel_out(temp) = 0'
             JR **
         JNEQ **** R3 R0         ; if (y==0) ***
             cmd
             JR **
-        JNEQ ***** R1 R2        ; if (x==19) ****
+        JNEQ ***** R2 R1        ; if (x==19) ****
             cmd
             JR **
-        JNEQ ******* R3 R2      ; if (y==19) *****
+        JNEQ ******* R3 R1      ; if (y==19) *****
             cmd
             JR **
 
@@ -36,25 +39,36 @@ JGT * R1 R2                     ; 'for(x from 0 to 19)'
                     OR R91 R92 R93 
                     JNEQ _ 
                 // (in_image (x ,y -1) ==0) or (in_image (x , y +1) ==0)
-    ADDI R4 R4 1
+    ADDI R3 R3 1
     JR 9
     **
-ADDI R1 R1 1
+ADDI R2 R2 1
 JR 4
 *
 
 ___________________________________________________________________________________________________
 Added instructions 
 
-// jump if not equal        JNEQ 8 R2 R3 ;      if (R2 != R3) goto inst. 8
+// jump if not equal        JNEQ 8 R2 R3    ;      if (R2 != R3) goto inst. 8
 
 
 Other instrctions 
 
-// load immidiate           LI R1 6       ;     R1 = 6
-// subtraction              SUB R1 R2 R3  ;     R1 = R2 - R3 
-// immidiate addition       ADDI R1 R2 4  ;     R1 = R2 + 4
-// immidiate subtraction    SUBI R1 R2 5  ;     R1 = R2 - 5
-// bitwise OR               OR R1 R2 R3   ;     R1 = R2 or R3 
-// jump                     JR 7          ;     goto inst. 7
-// jump if greater than     JGT 10 R2 R3  ;     if(R2>R3) goto inst. 10
+// subtraction              SUB R1 R2 R3    ;     R1 = R2 - R3 
+
+// multiplication           MUL R1, R2, R3  ;    R1 = R2 * R3
+
+// immidiate addition       ADDI R1 R2 4    ;     R1 = R2 + 4
+// immidiate subtraction    SUBI R1 R2 5    ;     R1 = R2 - 5
+// immidiate multiplication MULI R1 R2 6    ;     R1 = R2 * 6
+
+// bitwise OR               OR R1 R2 R3     ;     R1 = R2 or R3 
+
+// jump                     JR 7            ;     goto inst. 7
+// jump if greater than     JGT 10 R2 R3    ;     if(R2>R3) goto inst. 10
+
+// load immidiate           LI R1 6         ;     R1 = 6
+// load data                LD R1, R2       ;     R1 = memory(R2)
+// store data               SD R1, R2       ;     memory(R2) = R1 
+
+
