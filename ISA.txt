@@ -1,36 +1,60 @@
-LI R0 0
-LI R2 19
+LI R0 0                         ; constant 0
+LI R2 19                        ; constant 19
 
-// for(x from 0 to 19)
-SUB R1 R1 R1        ; 'x = 0'
-JGT * R1 R2
-    // for(y from 0 to 19)
-    SUB R3 R3 R3    ; 'y = 0'
-    JGT ** R3 R2 
-        // if (x==0)
-        JNEQ *** R1 R0 
+SUB R1 R1 R1                    ; 'x = 0'
+JGT * R1 R2                     ; 'for(x from 0 to 19)'
+    SUB R3 R3 R3                ; 'y = 0'
+    JGT ** R3 R2                ; 'for(y from 0 to 19)'
+
+                                ; Processing border pixels        
+        JNEQ *** R1 R0          ; if (x==0)
             cmd
             JR **
-        // if (y==0) ***
-        JNEQ **** R3 R0 
+        JNEQ **** R3 R0         ; if (y==0) ***
             cmd
             JR **
-        // if (x==19) ****
-        JNEQ *** R1 R2 
+        JNEQ ***** R1 R2        ; if (x==19) ****
             cmd
             JR **
-        // if (y==19) *****
-        JNEQ *** R3 R2 
+        JNEQ ******* R3 R2      ; if (y==19) *****
             cmd
             JR **
-    ADDI R4 
-    BRANCH 9
+
+                                ; Processing inner pixels
+                                ; if ( in_image (x , y ) ==0 )
+
+
+                                ; else 
+
+            // if (n_image (x -1 , y ) ==0 or
+                in_image ( x +1 , y ) ==0 or
+                in_image (x ,y -1) ==0 or
+                in_image (x , y +1) ==0)
+
+                // (n_image (x -1 , y ) ==0) or (in_image ( x +1 , y ) ==0)
+                    
+                    OR R91 R92 R93 
+                    JNEQ _ 
+                // (in_image (x ,y -1) ==0) or (in_image (x , y +1) ==0)
+    ADDI R4 R4 1
+    JR 9
     **
-ADDI R1 1
-BRANCH 4
+ADDI R1 R1 1
+JR 4
 *
 
 ___________________________________________________________________________________________________
 Added instructions 
 
 // jump if not equal        JNEQ 8 R2 R3 ;      if (R2 != R3) goto inst. 8
+
+
+Other instrctions 
+
+// load immidiate           LI R1 6       ;     R1 = 6
+// subtraction              SUB R1 R2 R3  ;     R1 = R2 - R3 
+// immidiate addition       ADDI R1 R2 4  ;     R1 = R2 + 4
+// immidiate subtraction    SUBI R1 R2 5  ;     R1 = R2 - 5
+// bitwise OR               OR R1 R2 R3   ;     R1 = R2 or R3 
+// jump                     JR 7          ;     goto inst. 7
+// jump if greater than     JGT 10 R2 R3  ;     if(R2>R3) goto inst. 10
