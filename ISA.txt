@@ -2,7 +2,7 @@ LI R0 0                         ; constant 0
 LI R1 19                        ; constant 19
 
 SUB R2 R2 R2                    ; 'x = 0'
-JGT * R2 R1                     ; 'for(x from 0 to 19)'
+JGT R2 R1 *                     ; 'for(x from 0 to 19)'
     SUB R3 R3 R3                ; 'y = 0'
     JGT ** R3 R1                ; 'for(y from 0 to 19)'
 
@@ -11,7 +11,7 @@ JGT * R2 R1                     ; 'for(x from 0 to 19)'
         ADD R4 R4 R2            ; 'tempXY += x' -> placement of pixel (x,y)
         JEQ 16 R2 R0           ; if (x==0)
         JEQ 16 R3 R0           ; if (y==0)   
-        JEQ 16 R2 R1           ; if (x==19) 
+        JEQ R2 R1 16           ; if (x==19) 
         JNEQ 18 R3 R1           ; if (y==19)     
             ADDI R4 R4 400      ; 'tempXY += 400'
             SD R0 R4            ; 'pixel_out(tempXY) = 0'
