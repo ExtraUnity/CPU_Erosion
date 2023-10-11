@@ -7,21 +7,28 @@ JGT * R2 R1                     ; 'for(x from 0 to 19)'
     JGT ** R3 R1                ; 'for(y from 0 to 19)'
 
                                 ; Processing border pixels        
-        JNEQ *** R2 R0          ; if (x==0)
-            MULI R4 R3 20       ; 'temp = y*20'
-            ADD R4 R4 R2        ; 'temp += x'
-            ADDI R4 R4 400      ; 'temp += 400'
-            SD R0 R4            ; 'pixel_out(temp) = 0'
+        MULI R4 R3 20           ; 'tempXY = y*20'
+        ADD R4 R4 R2            ; 'tempXY += x' -> placement of pixel (x,y)
+        JEQ 16 R2 R0           ; if (x==0)
+        JEQ 16 R3 R0           ; if (y==0)   
+        JEQ 16 R2 R1           ; if (x==19) 
+        JNEQ 18 R3 R1           ; if (y==19)     
+            ADDI R4 R4 400      ; 'tempXY += 400'
+            SD R0 R4            ; 'pixel_out(tempXY) = 0'
             JR **
-        JNEQ **** R3 R0         ; if (y==0) ***
-            cmd
+        LD R5 R4                ; 'tempV = pixel_in(tempXY)'
+        JNEQ 24 R5 R0           ;  if (in_image(tempV) == 0)
+            ADDI R4 R4 400      ; 'tempXY += 400'
+            SD R0 R4            ; 'pixel_out(tempXY) = 0'
             JR **
-        JNEQ ***** R2 R1        ; if (x==19) ****
-            cmd
-            JR **
-        JNEQ ******* R3 R1      ; if (y==19) *****
-            cmd
-            JR **
+        
+
+
+
+
+
+
+        
 
                                 ; Processing inner pixels
                                 ; if ( in_image (x , y ) ==0 )
