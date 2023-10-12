@@ -1,0 +1,74 @@
+LI R0 0                         ; constant 0
+LI R1 19                        ; constant 19
+
+
+SUB R2 R2 R2                    ; 'x = 0'
+JGT R2 R1 _                     ; 'for(x from 0 to 19)'
+    SUB R3 R3 R3                ; 'y = 0'
+    JGT R3 R1 **                ; 'for(y from 0 to 19)'
+
+                                ; Processing border pixels        
+        MULI R4 R3 20           ; 'tempXY = y*20'
+        ADD R4 R4 R2            ; 'tempXY += x' -> memory placement of pixel (x,y)
+        JEQ R2 R0 16           ; if (x==0)
+        JEQ R3 R0 16           ; if (y==0)   
+        JEQ R2 R1 16           ; if (x==19) 
+        JNEQ R3 R1 18           ; if (y==19)     
+            ADDI R4 R4 400      ; 'tempXY += 400'
+            SD R0 R4            ; 'pixel_out(tempXY) = 0'
+            JR **
+        LD R5 R4                ; 'tempV = pixel_in(tempXY)'
+        JNEQ R5 R0 24           ;  if (in_image(tempV) == 0)
+            ADDI R4 R4 400      ; 'tempXY += 400'
+            SD R0 R4            ; 'pixel_out(tempXY) = 0'
+            JR **
+        
+        
+
+                                ; Processing inner pixels
+                                ; if ( in_image (x , y ) ==0 )
+
+
+                                ; else 
+
+            // if (n_image (x -1 , y ) ==0 or
+                in_image ( x +1 , y ) ==0 or
+                in_image (x ,y -1) ==0 or
+                in_image (x , y +1) ==0)
+
+                // (n_image (x -1 , y ) ==0) or (in_image ( x +1 , y ) ==0)
+                    
+                    OR R91 R92 R93 
+                    JNEQ _ 
+                // (in_image (x ,y -1) ==0) or (in_image (x , y +1) ==0)
+    ADDI R3 R3 1
+    JR 9
+    **
+ADDI R2 R2 1
+JR 4
+*
+
+___________________________________________________________________________________________________
+Instruction-Set Architecture (ISA)
+
+Arithmetic and Logic:
+// Subtraction              SUB R1 R2 R3    ;     R1 = R2 - R3 
+// Multiplication           MUL R1, R2, R3  ;     R1 = R2 * R3
+// Bitwise OR               OR R1 R2 R3     ;     R1 = R2 or R3 
+// Immediate Add.           ADDI R1 R2 4    ;     R1 = R2 + 4
+// immidiate Sub.           SUBI R1 R2 5    ;     R1 = R2 - 5
+// immidiate Mul.           MULI R1 R2 6    ;     R1 = R2 * 6
+
+Data transfer:
+// Load immidiate           LI R1 6         ;     R1 = 6
+// Load data                LD R1, R2       ;     R1 = memory(R2)
+// Store data               SD R1, R2       ;     memory(R2) = R1 
+
+
+Control and Flow:
+// Jump                     JR 7            ;     goto inst. 7
+// Jump if greater than     JGT R2 R3 10    ;     if(R2>R3) goto inst. 10
+// Jump if not equal        JNEQ R2 R3 8    ;     if (R2 != R3) goto inst. 8
+
+
+
