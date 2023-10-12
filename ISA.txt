@@ -1,8 +1,9 @@
 LI R0 0                         ; constant 0
 LI R1 19                        ; constant 19
 
+
 SUB R2 R2 R2                    ; 'x = 0'
-JGT R2 R1 *                     ; 'for(x from 0 to 19)'
+JGT R2 R1 _                     ; 'for(x from 0 to 19)'
     SUB R3 R3 R3                ; 'y = 0'
     JGT R3 R1 **                ; 'for(y from 0 to 19)'
 
@@ -23,12 +24,6 @@ JGT R2 R1 *                     ; 'for(x from 0 to 19)'
             JR **
         
 
-
-
-
-
-
-        
 
                                 ; Processing inner pixels
                                 ; if ( in_image (x , y ) ==0 )
@@ -72,8 +67,8 @@ Data transfer:
 
 Control and Flow:
 // Jump                     JR 7            ;     goto inst. 7
-// Jump if greater than     JGT 10 R2 R3    ;     if(R2>R3) goto inst. 10
-// Jump if not equal        JNEQ 8 R2 R3    ;      if (R2 != R3) goto inst. 8
+// Jump if greater than     JGT R2 R3 10    ;     if(R2>R3) goto inst. 10
+// Jump if not equal        JNEQ R2 R3 8    ;     if (R2 != R3) goto inst. 8
 
 
 
