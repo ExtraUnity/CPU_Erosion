@@ -54,28 +54,26 @@ JR 4
 *
 
 ___________________________________________________________________________________________________
-Added instructions 
+Instruction-Set Architecture (ISA)
 
-// jump if not equal        JNEQ 8 R2 R3    ;      if (R2 != R3) goto inst. 8
+Arithmetic and Logic:
+// Subtraction              SUB R1 R2 R3    ;     R1 = R2 - R3 
+// Multiplication           MUL R1, R2, R3  ;     R1 = R2 * R3
+// Bitwise OR               OR R1 R2 R3     ;     R1 = R2 or R3 
+// Immediate Add.           ADDI R1 R2 4    ;     R1 = R2 + 4
+// immidiate Sub.           SUBI R1 R2 5    ;     R1 = R2 - 5
+// immidiate Mul.           MULI R1 R2 6    ;     R1 = R2 * 6
+
+Data transfer:
+// Load immidiate           LI R1 6         ;     R1 = 6
+// Load data                LD R1, R2       ;     R1 = memory(R2)
+// Store data               SD R1, R2       ;     memory(R2) = R1 
 
 
-Other instrctions 
+Control and Flow:
+// Jump                     JR 7            ;     goto inst. 7
+// Jump if greater than     JGT 10 R2 R3    ;     if(R2>R3) goto inst. 10
+// Jump if not equal        JNEQ 8 R2 R3    ;      if (R2 != R3) goto inst. 8
 
-// subtraction              SUB R1 R2 R3    ;     R1 = R2 - R3 
-
-// multiplication           MUL R1, R2, R3  ;    R1 = R2 * R3
-
-// immidiate addition       ADDI R1 R2 4    ;     R1 = R2 + 4
-// immidiate subtraction    SUBI R1 R2 5    ;     R1 = R2 - 5
-// immidiate multiplication MULI R1 R2 6    ;     R1 = R2 * 6
-
-// bitwise OR               OR R1 R2 R3     ;     R1 = R2 or R3 
-
-// jump                     JR 7            ;     goto inst. 7
-// jump if greater than     JGT 10 R2 R3    ;     if(R2>R3) goto inst. 10
-
-// load immidiate           LI R1 6         ;     R1 = 6
-// load data                LD R1, R2       ;     R1 = memory(R2)
-// store data               SD R1, R2       ;     memory(R2) = R1 
 
 
