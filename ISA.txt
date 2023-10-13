@@ -98,4 +98,3 @@ Control and Flow:
 // Jump if not equal        JNEQ R2 R3 8    ;     if (R2 != R3) goto inst. 8
 
 
-hej
