@@ -18,36 +18,51 @@ JGT R1 R3 <end loop>            ; 'for(x from 0 to 19)'
         JEQ R2 R0 20            ; if (y==0)   
         JEQ R1 R3 20            ; if (x==19) 
         JNEQ R2 R3 21           ; if (y==19) and if (y!=19) then jump     
-            SD R0 R4            ; 'memory(addressXY_out) = 0  -> set value of AddressXY_out = 0'
+            SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
 
     // Fetching the memory address of in_image(x,y) into R5     
         MULI R5 R2 20           ; 'addressXY_in = y*20'               -> using formula: y*n+x
         ADD R5 R4 R1            ; 'addressXY_in = adressXY_in + x'    -> using formula: y*n+x 
+        LD R6 R5                ;  val = memory(addressXY_in) -> Get the value of addressXY_in and store into R6
+
+
+    // Processing inner pixel "if"
+        JNEQ R6 R0 33           ;  if (addressXY_in == 0) then... if not, then jump to "else"
+            SD R0 R4            ;  'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'    
+    
+    // Processing inner pixel "else"
+        // Fetching all the addresses of: in_image(x-1,y), in_image(x+1,y), in_image(x,y-1), in_image(x,y+1)
+        MULI R7 R2 20           ; y*20
+        SUBI R11 R1 1           ; (x-1)
+        ADD R7 R7 R11           ; 'Address of in_image(x-1,y) ->  y*20+(x-1)
         
-    // Processing inner pixel
+        MULI R8 R2 20           ; y*20
+        ADDI R12 R1 1           ; (x+1)
+        ADD R8 R8 R12              ; 'Address of in_image(x+1,y) ->  y*20+(x+1)
 
-        LD R6 R5                ;  val = memory(addressXY_in) -> Get the value of addressXY_in
-        JNEQ R5 R0 24           ;  if (addressXY_in == 0)
-            ADDI R4 R4 400      ; 'tempXY += 400'
-            SD R0 R4            ; 'pixel_out(tempXY) = 0'
-            JR **
+        SUBI R13 R2 1           ; (y-1)
+        MULI R9 R13 20          ; (y-1)*20
+        ADD R9 R9 R1               ; 'Address of in_image(x,y-1) ->  (y-1)*20+x
+
+        SUBI R14 R2 1           ; (y+1)
+        MULI R10 R14 20         ; (y+1)*20
+        ADD R10 R10 R1          ; 'Address of in_image(x,y+1) ->  (y+1)*20+x
         
-                                ; Processing inner pixels
-                                ; if ( in_image (x , y ) ==0 )
+        // White pixel, checking neighboring pixels "If"
+            JEQ R7 R0 55        ; if (in_image(x-1,y) ==0)
+            JEQ R8 R0 55        ; if (in_image(x+1,y) ==0)
+            JEQ R9 R0 55        ; if (in_image(x,y-1) ==0)
+            JNEQ R10 R0 57      ; if (in_image(x,y+1) ==0)
+            //Erode    
+            SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
+            
+
+        // White pixel, checking neighboring pixels "else"
+            MULI R7 R2 20           ; 'addressXY_in(x,y-1) -> using formula: (y-1)*20+x
+            ADD R7 R4 R1            ; 'addressXY_in(x,y-1) -> using formula: (y-1)*20+x 
+        
 
 
-                                ; else 
-
-            // if (n_image (x -1 , y ) ==0 or
-                in_image ( x +1 , y ) ==0 or
-                in_image (x ,y -1) ==0 or
-                in_image (x , y +1) ==0)
-
-                // (n_image (x -1 , y ) ==0) or (in_image ( x +1 , y ) ==0)
-                    
-                    OR R91 R92 R93 
-                    JNEQ _ 
-                // (in_image (x ,y -1) ==0) or (in_image (x , y +1) ==0)
     ADDI R2 R2 1    ; y++
     JR 9
     **
@@ -77,6 +92,7 @@ Data transfer:
 Control and Flow:
 // Jump                     JR 7            ;     goto inst. 7
 // Jump if greater than     JGT R2 R3 10    ;     if(R2>R3) goto inst. 10
+// Jump if equal            JEG R1 R2 20    ;     if (R1==R3) goto inst. 20
 // Jump if not equal        JNEQ R2 R3 8    ;     if (R2 != R3) goto inst. 8
 
 
