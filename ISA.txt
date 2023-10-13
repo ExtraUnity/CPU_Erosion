@@ -3,10 +3,10 @@ LI R3 19                        ; constant 19
 
 // Outer for-loop start
 SUB R1 R1 R1                    ; 'x = 0'
-JGT R1 R3 <end loop>            ; 'for(x from 0 to 19)'
+JGT R1 R3 74                    ; 'for(x from 0 to 19)'
     // Inner-loop start
     SUB R2 R2 R2                ; 'y = 0'
-    JGT R2 R3 <end loop>        ; 'for(y from 0 to 19)'
+    JGT R2 R3 70                ; 'for(y from 0 to 19)'
 
     // Fetching the memory address of out_image(x,y) into R4     
         MULI R4 R2 20           ; 'addressXY_out = y*20'                -> using formula: y*n+x
@@ -14,11 +14,13 @@ JGT R1 R3 <end loop>            ; 'for(x from 0 to 19)'
         ADDI R4 R4 400          ; 'addressXY_out = adressXY_out + 400'  -> The memory address of pixel (x,y)
     
     //Processing border pixel   
-        JEQ R1 R0 20            ; if (x==0)
-        JEQ R2 R0 20            ; if (y==0)   
-        JEQ R1 R3 20            ; if (x==19) 
-        JNEQ R2 R3 21           ; if (y==19) and if (y!=19) then jump     
-            SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
+        JEQ R1 R0 22            ; if (x==0)
+        JEQ R2 R0 22            ; if (y==0)   
+        JEQ R1 R3 22            ; if (x==19) 
+        JEQ R2 R3 22            ; if (y==19)
+        JR 24                   ; else... skip "Black Pixel"
+        // Black pixel     
+        SD R0 R4                ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
 
     // Fetching the memory address of in_image(x,y) into R5     
         MULI R5 R2 20           ; 'addressXY_in = y*20'               -> using formula: y*n+x
@@ -34,43 +36,43 @@ JGT R1 R3 <end loop>            ; 'for(x from 0 to 19)'
         // Fetching all the addresses of: in_image(x-1,y), in_image(x+1,y), in_image(x,y-1), in_image(x,y+1)
         MULI R7 R2 20           ; y*20
         SUBI R11 R1 1           ; (x-1)
-        ADD R7 R7 R11           ; 'Address of in_image(x-1,y) ->  y*20+(x-1)
+        ADD R7 R7 R11           ; 'Memory Address of in_image(x-1,y) ->  y*20+(x-1)
+        Load R7 R7              ; Extracts the value of in_image(x-1,y)
         
         MULI R8 R2 20           ; y*20
         ADDI R12 R1 1           ; (x+1)
-        ADD R8 R8 R12              ; 'Address of in_image(x+1,y) ->  y*20+(x+1)
+        ADD R8 R8 R12           ; 'Memory Address of in_image(x+1,y) ->  y*20+(x+1)
+        Load R8 R8              ; Extracts the value of in_image(x+1,y)
 
         SUBI R13 R2 1           ; (y-1)
         MULI R9 R13 20          ; (y-1)*20
-        ADD R9 R9 R1               ; 'Address of in_image(x,y-1) ->  (y-1)*20+x
+        ADD R9 R9 R1            ; 'Memory Address of in_image(x,y-1) ->  (y-1)*20+x
+        Load R9 R9              ; Extracts the value of in_image(x,y-1)
 
         SUBI R14 R2 1           ; (y+1)
         MULI R10 R14 20         ; (y+1)*20
-        ADD R10 R10 R1          ; 'Address of in_image(x,y+1) ->  (y+1)*20+x
+        ADD R10 R10 R1          ; 'Memory Address of in_image(x,y+1) ->  (y+1)*20+x
+        Load R10 R10            ; Extracts the value of in_image(x,y+1)
         
         // White pixel, checking neighboring pixels "If"
-            JEQ R7 R0 55        ; if (in_image(x-1,y) ==0)
-            JEQ R8 R0 55        ; if (in_image(x+1,y) ==0)
-            JEQ R9 R0 55        ; if (in_image(x,y-1) ==0)
-            JNEQ R10 R0 57      ; if (in_image(x,y+1) ==0)
-            //Erode    
+            JEQ R7 R0 62        ; if (in_image(x-1,y) == 0)
+            JEQ R8 R0 62        ; if (in_image(x+1,y) == 0)
+            JEQ R9 R0 62        ; if (in_image(x,y-1) == 0)
+            JEQ R10 R0 62       ; if (in_image(x,y+1) == 0)    
+            JR 64               ; else... skip Erode and go to line 64
+            //Erode
             SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
+            //Do not erode
+            SI 255 R4           ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 255'
             
-
-        // White pixel, checking neighboring pixels "else"
-            MULI R7 R2 20           ; 'addressXY_in(x,y-1) -> using formula: (y-1)*20+x
-            ADD R7 R4 R1            ; 'addressXY_in(x,y-1) -> using formula: (y-1)*20+x 
-        
-
-
     ADDI R2 R2 1    ; y++
     JR 9
-    **
     // Inner for-loop end
+   
 ADDI R1 R1 1  ;  x++
 JR 6
-*
-// Outer for-loop end
+// Outer for-loop end (Done)
+
 
 ___________________________________________________________________________________________________
 Instruction-Set Architecture (ISA)
@@ -86,6 +88,7 @@ Arithmetic and Logic:
 Data transfer:
 // Load immidiate           LI R1 6         ;     R1 = 6
 // Load data                LD R1, R2       ;     R1 = memory(R2)
+// Store immediate          SI 255, R2      ;     memory(R2) = 255
 // Store data               SD R1, R2       ;     memory(R2) = R1 
 
 
