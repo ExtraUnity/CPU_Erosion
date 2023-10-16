@@ -3,10 +3,10 @@ LI R3 19                        ; constant 19
 
 // Outer for-loop start
 SUB R1 R1 R1                    ; 'x = 0'
-JGT R1 R3 74                    ; 'for(x from 0 to 19)'
+JGT R1 R3 75                    ; 'for(x from 0 to 19)'
     // Inner-loop start
     SUB R2 R2 R2                ; 'y = 0'
-    JGT R2 R3 70                ; 'for(y from 0 to 19)'
+    JGT R2 R3 71                ; 'for(y from 0 to 19)'
 
     // Fetching the memory address of out_image(x,y) into R4     
         MULI R4 R2 20           ; 'addressXY_out = y*20'                -> using formula: y*n+x
@@ -54,17 +54,18 @@ JGT R1 R3 74                    ; 'for(x from 0 to 19)'
         ADD R10 R10 R1          ; 'Memory Address of in_image(x,y+1) ->  (y+1)*20+x
         LD R10 R10            ; Extracts the value of in_image(x,y+1)
         
-    // White pixel, checking neighboring pixels "If"
-        JEQ R7 R0 64        ; if (in_image(x-1,y) == 0) or...
-        JEQ R8 R0 64        ; if (in_image(x+1,y) == 0) or...
-        JEQ R9 R0 64        ; if (in_image(x,y-1) == 0) or...
-        JEQ R10 R0 64       ; if (in_image(x,y+1) == 0)    
-        JR 66               ; else... skip Erode and go to line 66
-        //Erode
-        SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
-        //Do not erode
-        SI 255 R4           ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 255'
-        
+        // White pixel, checking neighboring pixels "If"
+            JEQ R7 R0 64        ; if (in_image(x-1,y) == 0) or...
+            JEQ R8 R0 64        ; if (in_image(x+1,y) == 0) or...
+            JEQ R9 R0 64        ; if (in_image(x,y-1) == 0) or...
+            JEQ R10 R0 64       ; if (in_image(x,y+1) == 0)    
+            JR 66               ; else... skip Erode and go to line 67
+            //Erode
+            SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
+            JR 69               ; After erosion, go to next pixel
+            //Do not erode
+            SI 255 R4           ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 255'
+            
     ADDI R2 R2 1    ; y++
     JR 9
     // Inner for-loop end
