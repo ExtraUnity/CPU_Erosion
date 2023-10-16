@@ -1,6 +1,6 @@
 LI R0 0                         ; constant 0
 LI R3 19                        ; constant 19
-
+LI R15 255                      ; constant 255
 // Outer for-loop start
 SUB R1 R1 R1                    ; 'x = 0'
 JGT R1 R3 75                    ; 'for(x from 0 to 19)'
@@ -64,9 +64,9 @@ JGT R1 R3 75                    ; 'for(x from 0 to 19)'
             SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
             JR 69               ; After erosion, go to next pixel
             //Do not erode
-            SI 255 R4           ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 255'
+            SD R4 R15           ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 255'
             
-    ADDI R2 R2 1    ; y++
+    ADDI R2 R2 1                ; y++
     JR 9
     // Inner for-loop end
    
@@ -88,7 +88,6 @@ Arithmetic and Logic:
 Data transfer:
 // Load immidiate           LI R1 6         ;     R1 = 6
 // Load data                LD R1, R2       ;     R1 = memory(R2)
-// Store immediate          SI 255, R2      ;     memory(R2) = 255
 // Store data               SD R1, R2       ;     memory(R2) = R1 
 
 
