@@ -20,7 +20,7 @@ JGT R1 R3 74                    ; 'for(x from 0 to 19)'
         JEQ R2 R3 22            ; if (y==19)
         JR 24                   ; else... skip "Black Pixel"
         // Black pixel     
-        SD R0 R4                ; 'memory(addressXY_out) = 0             -> Set value of AddressXY_out to 0'
+            SD R0 R4                ; 'memory(addressXY_out) = 0             -> Set value of AddressXY_out to 0'
 
     // Fetching the memory address of in_image(x,y) into R5     
         MULI R5 R2 20           ; 'addressXY_in = y*20'                  -> using formula: y*n+x
@@ -30,41 +30,41 @@ JGT R1 R3 74                    ; 'for(x from 0 to 19)'
 
     // Processing inner pixel "if"
         JNEQ R6 R0 35           ;  if (addressXY_in == 0) then... if not, then skip next line"
-        SD R0 R4                ;  'memory(addressXY_out) = 0             -> Set value of AddressXY_out to 0'    
+            SD R0 R4                ;  'memory(addressXY_out) = 0             -> Set value of AddressXY_out to 0'    
     
     // Processing inner pixel "else"
         // Fetching all the values of pixel: in_image(x-1,y), in_image(x+1,y), in_image(x,y-1), in_image(x,y+1) into Registers [7; 10]
         MULI R7 R2 20           ; y*20
         SUBI R11 R1 1           ; (x-1)
         ADD R7 R7 R11           ; 'Memory Address of in_image(x-1,y) ->  y*20+(x-1)
-        Load R7 R7              ; Extracts the value of in_image(x-1,y)
+        LD R7 R7              ; Extracts the value of in_image(x-1,y)
         
         MULI R8 R2 20           ; y*20
         ADDI R12 R1 1           ; (x+1)
         ADD R8 R8 R12           ; 'Memory Address of in_image(x+1,y) ->  y*20+(x+1)
-        Load R8 R8              ; Extracts the value of in_image(x+1,y)
+        LD R8 R8              ; Extracts the value of in_image(x+1,y)
 
         SUBI R13 R2 1           ; (y-1)
         MULI R9 R13 20          ; (y-1)*20
         ADD R9 R9 R1            ; 'Memory Address of in_image(x,y-1) ->  (y-1)*20+x
-        Load R9 R9              ; Extracts the value of in_image(x,y-1)
+        LD R9 R9              ; Extracts the value of in_image(x,y-1)
 
         SUBI R14 R2 1           ; (y+1)
         MULI R10 R14 20         ; (y+1)*20
         ADD R10 R10 R1          ; 'Memory Address of in_image(x,y+1) ->  (y+1)*20+x
-        Load R10 R10            ; Extracts the value of in_image(x,y+1)
+        LD R10 R10            ; Extracts the value of in_image(x,y+1)
         
-        // White pixel, checking neighboring pixels "If"
-            JEQ R7 R0 64        ; if (in_image(x-1,y) == 0) or...
-            JEQ R8 R0 64        ; if (in_image(x+1,y) == 0) or...
-            JEQ R9 R0 64        ; if (in_image(x,y-1) == 0) or...
-            JEQ R10 R0 64       ; if (in_image(x,y+1) == 0)    
-            JR 66               ; else... skip Erode and go to line 66
-            //Erode
-            SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
-            //Do not erode
-            SI 255 R4           ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 255'
-            
+    // White pixel, checking neighboring pixels "If"
+        JEQ R7 R0 64        ; if (in_image(x-1,y) == 0) or...
+        JEQ R8 R0 64        ; if (in_image(x+1,y) == 0) or...
+        JEQ R9 R0 64        ; if (in_image(x,y-1) == 0) or...
+        JEQ R10 R0 64       ; if (in_image(x,y+1) == 0)    
+        JR 66               ; else... skip Erode and go to line 66
+        //Erode
+        SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
+        //Do not erode
+        SI 255 R4           ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 255'
+        
     ADDI R2 R2 1    ; y++
     JR 9
     // Inner for-loop end
