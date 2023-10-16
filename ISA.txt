@@ -59,7 +59,7 @@ JGT R1 R3 75                    ; 'for(x from 0 to 19)'
             JEQ R8 R0 64        ; if (in_image(x+1,y) == 0) or...
             JEQ R9 R0 64        ; if (in_image(x,y-1) == 0) or...
             JEQ R10 R0 64       ; if (in_image(x,y+1) == 0)    
-            JR 66               ; else... skip Erode and go to line 66
+            JR 66               ; else... skip Erode and go to line 67
             //Erode
             SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
             JR 69               ; After erosion, go to next pixel
