@@ -28,7 +28,7 @@ class ALUTester(dut: ALU) extends PeekPokeTester(dut) {
         step(1)
         expect(dut.io.result,"b011".U)
 
-        //TEST OR
+        //TEST AND
         poke(dut.io.operand1,"b001".U)
         poke(dut.io.operand2,"b011".U)
         poke(dut.io.sel,"b100".U)
@@ -41,6 +41,20 @@ class ALUTester(dut: ALU) extends PeekPokeTester(dut) {
         poke(dut.io.sel,"b101".U)
         step(1)
         expect(dut.io.result,20)
+
+        //TEST X
+        poke(dut.io.operand1,5)
+        poke(dut.io.operand2,4)
+        poke(dut.io.sel,"b110".U)
+        step(1)
+        expect(dut.io.result,5)
+
+        //TEST Y
+        poke(dut.io.operand1,5)
+        poke(dut.io.operand2,4)
+        poke(dut.io.sel,"b111".U)
+        step(1)
+        expect(dut.io.result,4)
 }
 
 object ALUTester {
