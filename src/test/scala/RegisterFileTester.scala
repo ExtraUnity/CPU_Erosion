@@ -16,19 +16,6 @@ class RegisterFileTester(dut: RegisterFile) extends PeekPokeTester(dut) {
         expect(dut.io.readData1, 20.U)
         expect(dut.io.readData2, 0.U)
 
-
-
-        //Test case (Skal fuck op, bare slet kodelinje 21-30 efter bekræftelse):
-        poke(dut.io.readReg1, "b00001".U)
-        poke(dut.io.readReg2, "b00010".U)
-        poke(dut.io.regWrite, true.B)
-        poke(dut.io.writeData, 40.U) //fail
-        poke(dut.io.writeReg, "b00001".U)
-        step(1)
-        expect(dut.io.readData1, 20.U)
-        expect(dut.io.readData2, 0.U)
-        
-
         //Test case 2:
         poke(dut.io.readReg1, "b00001".U)
         poke(dut.io.readReg2, "b00010".U)
