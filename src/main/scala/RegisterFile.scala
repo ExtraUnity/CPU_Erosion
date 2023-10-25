@@ -14,15 +14,15 @@ class RegisterFile extends Module {
     val readData1 = Output(UInt(32.W))
     val readData2 = Output(UInt(32.W))
 
-    //Array of 16 Register
-    val registerFile = Reg(Vec(16, UInt(32.W)))
-  })
 
+  })
+      //Array of 16 Register
+    val registerFile = Reg(Vec(16, UInt(32.W)))
   //Implement this module here
-  io.readData1 := io.registerFile(io.readReg1)
-  io.readData2 := io.registerFile(io.readReg2)
+  io.readData1 := registerFile(io.readReg1)
+  io.readData2 := registerFile(io.readReg2)
   when (io.regWrite) {
-    io.registerFile(io.writeReg):= io.writeData
+    registerFile(io.writeReg) := io.writeData
   }
 
 }
