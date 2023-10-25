@@ -12,7 +12,7 @@ class ControlUnit extends Module {
     val memWrite = Output(Bool()) //DONE
     val ALUOpcode = Output(UInt(3.W)) //DONE
     val ALUSrc = Output(Bool()) //DONE
-    val regWrite = Ouput(Bool()) //DONE
+    val regWrite = Output(Bool()) //DONE
     val regDest = Output(Bool()) //DONE
     val stop = Output(Bool()) //DONE
   })
@@ -71,7 +71,7 @@ class ControlUnit extends Module {
     is("b001011".U) { //SD
       io.memWrite := true.B
     }
-    is("b001100".U || "b001101".U || "b001110".U || "b001111".U ||) { //Jumps
+    is("b001100".U || "b001101".U || "b001110".U || "b001111".U) { //Jumps
       io.jumpEnable := true.B
       io.regWrite := false.B
     }
