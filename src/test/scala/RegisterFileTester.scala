@@ -16,7 +16,7 @@ class RegisterFileTester(dut: RegisterFile) extends PeekPokeTester(dut) {
         expect(dut.io.readData1, 20.U)
         expect(dut.io.readData2, 0.U)
         
-        //Test case 1:
+        //Test case 2:
         poke(dut.io.readReg1, "b00001".U)
         poke(dut.io.readReg2, "b00010".U)
         poke(dut.io.regWrite, false.B)
