@@ -6,7 +6,7 @@ ADD = 001
 SUB = 010
 OR = 011
 AND = 100
-MULT = 101
+MUL = 101
 x = 110
 y = 111
 
@@ -29,22 +29,22 @@ class ALU extends Module {
     is("b001".U) { //ADD
       reg := io.operand1 + io.operand2
     }
-    is("b010".U) {
+    is("b010".U) { //SUB
       reg := io.operand1 - io.operand2
     }
-    is("b011".U) {
+    is("b011".U) { //OR
       reg := io.operand1 | io.operand2
     }
-    is("b100".U) {
+    is("b100".U) { //AND
       reg := io.operand1 & io.operand2
     }
-    is("b101".U) {
+    is("b101".U) { //MUL
       reg := io.operand1 * io.operand2
     }
-    is("b110".U) {
+    is("b110".U) { //X
       reg := io.operand1
     }
-    is("b111".U) {
+    is("b111".U) { //Y
       reg := io.operand2;
     }
   }
