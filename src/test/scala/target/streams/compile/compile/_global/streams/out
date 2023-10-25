@@ -1,0 +1,301 @@
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:1:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:2:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3.iotesters[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:3:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3.iotesters.PeekPokeTester[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:7:35: not found: type PeekPokeTester[0m
+[0m[[0m[31merror[0m] [0m[0mclass ALUTester(dut: ALU) extends PeekPokeTester(dut) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:7:22: not found: type ALU[0m
+[0m[[0m[31merror[0m] [0m[0mclass ALUTester(dut: ALU) extends PeekPokeTester(dut) {[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:7:50: no arguments allowed for nullary constructor Object: ()Object[0m
+[0m[[0m[31merror[0m] [0m[0mclass ALUTester(dut: ALU) extends PeekPokeTester(dut) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:10:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,2)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:11:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,4)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:12:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b001".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:12:32: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b001".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:13:9: not found: value step[0m
+[0m[[0m[31merror[0m] [0m[0m        step(1)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:14:9: not found: value expect[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,6)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:18:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,2)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:19:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,4)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:20:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b010".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:20:32: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b010".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:21:9: not found: value step[0m
+[0m[[0m[31merror[0m] [0m[0m        step(1)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:22:9: not found: value expect[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,-2)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:25:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,"b001".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:25:37: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,"b001".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:26:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,"b011".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:26:37: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,"b011".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:27:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b011".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:27:32: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b011".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:28:9: not found: value step[0m
+[0m[[0m[31merror[0m] [0m[0m        step(1)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:29:9: not found: value expect[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,"b011".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:29:37: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,"b011".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:32:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,"b001".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:32:37: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,"b001".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:33:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,"b011".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:33:37: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,"b011".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:34:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b100".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:34:32: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b100".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:35:9: not found: value step[0m
+[0m[[0m[31merror[0m] [0m[0m        step(1)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:36:9: not found: value expect[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,"b001".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:36:37: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,"b001".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:39:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,5)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:40:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,4)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:41:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b101".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:41:32: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b101".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:42:9: not found: value step[0m
+[0m[[0m[31merror[0m] [0m[0m        step(1)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:43:9: not found: value expect[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,20)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:46:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,5)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:47:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,4)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:48:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b110".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:48:32: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b110".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:49:9: not found: value step[0m
+[0m[[0m[31merror[0m] [0m[0m        step(1)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:50:9: not found: value expect[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,5)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:53:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand1,5)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:54:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.operand2,4)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:55:9: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b111".U)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:55:32: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m        poke(dut.io.sel,"b111".U)[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:56:9: not found: value step[0m
+[0m[[0m[31merror[0m] [0m[0m        step(1)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:57:9: not found: value expect[0m
+[0m[[0m[31merror[0m] [0m[0m        expect(dut.io.result,4)[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:63:5: not found: value iotesters[0m
+[0m[[0m[31merror[0m] [0m[0m    iotesters.Driver.execute([0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/ALUTester.scala:67:17: not found: type ALU[0m
+[0m[[0m[31merror[0m] [0m[0m      () => new ALU()) {[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:1:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:2:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3.iotesters[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:3:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3.iotesters.PeekPokeTester[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:7:41: not found: type PeekPokeTester[0m
+[0m[[0m[31merror[0m] [0m[0mclass CPUTopTester(dut: CPUTop) extends PeekPokeTester(dut) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:7:25: not found: type CPUTop[0m
+[0m[[0m[31merror[0m] [0m[0mclass CPUTopTester(dut: CPUTop) extends PeekPokeTester(dut) {[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:7:56: no arguments allowed for nullary constructor Object: ()Object[0m
+[0m[[0m[31merror[0m] [0m[0mclass CPUTopTester(dut: CPUTop) extends PeekPokeTester(dut) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:9:3: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m  poke(dut.io.run, 0)[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Images.scala:1:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:19:5: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m    poke(dut.io.testerDataMemEnable, 1)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:20:5: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m    poke(dut.io.testerDataMemWriteEnable, 1)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:21:5: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m    poke(dut.io.testerDataMemAddress, address)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:22:5: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m    poke(dut.io.testerDataMemDataWrite, image(address))[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:23:5: not found: value step[0m
+[0m[[0m[31merror[0m] [0m[0m    step(1)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:25:3: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m  poke(dut.io.testerDataMemEnable, 0)[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:1:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:2:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3.util._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:4:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3.iotesters.PeekPokeTester[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:3:8: not found: object chisel3[0m
+[0m[[0m[31merror[0m] [0m[0mimport chisel3.iotesters[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:9:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:9:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:10:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:10:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:11:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:11:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:12:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:12:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:13:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:13:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:14:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:14:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:15:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:15:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:16:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:16:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:17:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:17:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:18:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:18:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:19:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:19:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W),[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:20:17: value U is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W)[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/Programs.scala:20:22: value W is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    "h00000000".U(32.W)[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:34:5: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m    poke(dut.io.testerProgMemEnable, 1)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/niko/GitHub/CPU_Erosion/src/test/scala/CPUTopTester.scala:35:5: not found: value poke[0m
+[0m[[0m[31merror[0m] [0m[0m    poke(dut.io.testerProgMemWriteEnable, 1)[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m100 errors found[0m

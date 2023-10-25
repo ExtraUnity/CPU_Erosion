@@ -7,27 +7,15 @@ import java.util
 class RegisterFileTester(dut: RegisterFile) extends PeekPokeTester(dut) {
 
         //Test case 1:
-        poke(dut.io.aSel, "b00001".U)
-        poke(dut.io.bSel, "b00002".U)
-        poke(dut.io.writeEnable, true)
-        poke(dut.io.writeData, ?)
-        poke(dut.io.writeSel, ?)
+        poke(dut.io.readReg1, "b00001".U)
+        poke(dut.io.readReg2, "b00010".U)
+        poke(dut.io.regWrite, true)
+        poke(dut.io.writeData, 20.U)
+        poke(dut.io.writeReg, "b00001".U)
         step(1)
-        expect(d)
-
-        // Test case 2:
-        poke(dut.io.aSel, Reg(UInt(5.W)))
-        poke(dut.io.bSel, Reg(UInt(5.W)))
-        poke(dut.io.writeEnable, false)
-        poke(dut.io.)
-
-
-        //TEST ADD
-        poke(dut.io.operand1, 2)
-        poke(dut.io.operand2,4)
-        poke(dut.io.sel,"b001".U)
-        step(1)
-        expect(dut.io.result,6)
+        expect(dut.io.readData1, 20.U)
+        expect(dut.io.readData2, 0.U)
+        
 
 }
 
