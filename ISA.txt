@@ -73,7 +73,7 @@ JGT R1 R3 75                    ; 'for(x from 0 to 19)'
 ADDI R1 R1 1  ;  x++
 JR 6
 // Outer for-loop end (Done)
-
+END
 
 ___________________________________________________________________________________________________
 Instruction-Set Architecture (ISA)
@@ -96,5 +96,5 @@ Control and Flow:
 // Jump if greater than     JGT R2 R3 10    ;     if(R2>R3) goto inst. 10
 // Jump if equal            JEG R1 R2 20    ;     if (R1==R3) goto inst. 20
 // Jump if not equal        JNEQ R2 R3 8    ;     if (R2 != R3) goto inst. 8
-
+// END
 
