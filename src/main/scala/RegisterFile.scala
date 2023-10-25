@@ -19,10 +19,10 @@ class RegisterFile extends Module {
   })
 
   //Implement this module here
-  io.readData1 := io.registerFile[io.readReg1]
-  io.readData2 := io.registerFile[io.readReg2]
+  io.readData1 := io.registerFile(io.readReg1)
+  io.readData2 := io.registerFile(io.readReg2)
   when (io.regWrite) {
-    io.registerFile[writeReg]:= io.writeData
+    io.registerFile(io.writeReg):= io.writeData
   }
 
 }

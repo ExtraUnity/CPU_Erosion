@@ -18,9 +18,9 @@ class ControlUnit extends Module {
   })
 
   io.ALUOpcode := "b000".U
-  io.branch := false.B
+  io.jumpEnable := false.B
   io.ALUSrc := false.B
-  io.RegWrite := true.B //True for all except jumps
+  io.regWrite := true.B //True for all except jumps
   io.memToReg := false.B
   io.memRead := false.B
   io.memWrite := false.B
@@ -71,7 +71,19 @@ class ControlUnit extends Module {
     is("b001011".U) { //SD
       io.memWrite := true.B
     }
-    is("b001100".U || "b001101".U || "b001110".U || "b001111".U) { //Jumps
+    is("b001100".U) { //Jumps
+      io.jumpEnable := true.B
+      io.regWrite := false.B
+    }
+    is("b001101".U) { //Jumps
+      io.jumpEnable := true.B
+      io.regWrite := false.B
+    }
+    is("b001110".U) { //Jumps
+      io.jumpEnable := true.B
+      io.regWrite := false.B
+    }
+    is("b001111".U) { //Jumps
       io.jumpEnable := true.B
       io.regWrite := false.B
     }

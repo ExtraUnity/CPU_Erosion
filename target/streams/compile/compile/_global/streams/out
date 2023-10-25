@@ -1,28 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\ControlUnit.scala:21:6: value branch is not a member of chisel3.Bundle{val opcode: chisel3.UInt; val jumpEnable: chisel3.Bool; val memToReg: chisel3.Bool; val memRead: chisel3.Bool; val memWrite: chisel3.Bool; val ALUOpcode: chisel3.UInt; val ALUSrc: chisel3.Bool; val regWrite: chisel3.Bool; val regDest: chisel3.Bool; val stop: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m  io.branch := false.B[0m
-[0m[[0m[31merror[0m] [0m[0m     ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\ControlUnit.scala:23:6: value RegWrite is not a member of chisel3.Bundle{val opcode: chisel3.UInt; val jumpEnable: chisel3.Bool; val memToReg: chisel3.Bool; val memRead: chisel3.Bool; val memWrite: chisel3.Bool; val ALUOpcode: chisel3.UInt; val ALUSrc: chisel3.Bool; val regWrite: chisel3.Bool; val regDest: chisel3.Bool; val stop: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m  io.RegWrite := true.B //True for all except jumps[0m
-[0m[[0m[31merror[0m] [0m[0m     ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\ControlUnit.scala:74:20: value || is not a member of chisel3.UInt[0m
-[0m[[0m[31merror[0m] [0m[0m    is("b001100".U || "b001101".U || "b001110".U || "b001111".U) { //Jumps[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\RegisterFile.scala:22:19: not found: value registerFile[0m
-[0m[[0m[31merror[0m] [0m[0m  io.readData1 := registerFile(io.readReg1)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\RegisterFile.scala:23:19: not found: value registerFile[0m
-[0m[[0m[31merror[0m] [0m[0m  io.readData2 := registerFile(io.readReg2)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\RegisterFile.scala:24:9: not found: value regWrite[0m
-[0m[[0m[31merror[0m] [0m[0m  when (regWrite) {[0m
-[0m[[0m[31merror[0m] [0m[0m        ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\RegisterFile.scala:25:5: not found: value registerFile[0m
-[0m[[0m[31merror[0m] [0m[0m    registerFile(writeReg):= writeData[0m
-[0m[[0m[31merror[0m] [0m[0m    ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\RegisterFile.scala:25:18: not found: value writeReg[0m
-[0m[[0m[31merror[0m] [0m[0m    registerFile(writeReg):= writeData[0m
-[0m[[0m[31merror[0m] [0m[0m                 ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\main\scala\RegisterFile.scala:25:30: not found: value writeData[0m
-[0m[[0m[31merror[0m] [0m[0m    registerFile(writeReg):= writeData[0m
-[0m[[0m[31merror[0m] [0m[0m                             ^[0m
-[0m[[0m[31merror[0m] [0m[0m9 errors found[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 71 feature warnings; re-run with -feature for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 20 feature warnings; re-run with -feature for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
