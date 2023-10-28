@@ -33,6 +33,10 @@ class CPUTop extends Module {
 
   ////////////////////////////////////////////
   //Continue here with your connections
+  
+
+
+
   ////////////////////////////////////////////
 
   //This signals are used by the tester for loading the program to the program memory, do not touch
