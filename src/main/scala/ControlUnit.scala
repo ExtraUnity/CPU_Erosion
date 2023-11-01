@@ -72,7 +72,7 @@ class ControlUnit extends Module {
       io.memToReg := true.B
     }
     is("b001011".U) { //SD
-      io.ALUOpcode := "b0110".U
+      io.ALUOpcode := "b0111".U
       io.memWrite := true.B
       io.regWrite := false.B
     }

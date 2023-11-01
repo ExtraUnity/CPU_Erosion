@@ -528,7 +528,7 @@ module ControlUnit(
   wire  _GEN_14 = _T_12 ? 1'h0 : _GEN_11; // @[Conditional.scala 39:67]
   wire [3:0] _GEN_16 = _T_12 ? 4'h0 : _GEN_9; // @[Conditional.scala 39:67]
   wire  _GEN_17 = _T_12 ? 1'h0 : _GEN_12; // @[Conditional.scala 39:67]
-  wire [3:0] _GEN_18 = _T_11 ? 4'h6 : _GEN_16; // @[Conditional.scala 39:67]
+  wire [3:0] _GEN_18 = _T_11 ? 4'h7 : _GEN_16; // @[Conditional.scala 39:67]
   wire  _GEN_20 = _T_11 ? 1'h0 : _GEN_14; // @[Conditional.scala 39:67]
   wire  _GEN_21 = _T_11 ? 1'h0 : _GEN_13; // @[Conditional.scala 39:67]
   wire  _GEN_22 = _T_11 ? 1'h0 : _T_12; // @[Conditional.scala 39:67]
@@ -625,38 +625,33 @@ module ControlUnit(
   assign io_stop = _T ? 1'h0 : _GEN_107; // @[ControlUnit.scala 28:11 ControlUnit.scala 100:15]
 endmodule
 module ALU(
-  input         clock,
-  input         reset,
   input  [31:0] io_operand1,
   input  [31:0] io_operand2,
   input  [3:0]  io_sel,
   output [31:0] io_result,
   output        io_compResult
 );
-`ifdef RANDOMIZE_REG_INIT
-  reg [31:0] _RAND_0;
-`endif // RANDOMIZE_REG_INIT
-  reg [31:0] reg_; // @[ALU.scala 28:20]
   wire  _T = 4'h1 == io_sel; // @[Conditional.scala 37:30]
-  wire [31:0] _T_3 = $signed(io_operand1) + $signed(io_operand2); // @[ALU.scala 33:26]
+  wire [31:0] _T_3 = $signed(io_operand1) + $signed(io_operand2); // @[ALU.scala 33:32]
   wire  _T_4 = 4'h2 == io_sel; // @[Conditional.scala 37:30]
-  wire [31:0] _T_7 = $signed(io_operand1) - $signed(io_operand2); // @[ALU.scala 36:26]
-  wire  _T_8 = $signed(reg_) == 32'sh0; // @[ALU.scala 37:27]
+  wire [31:0] _T_7 = $signed(io_operand1) - $signed(io_operand2); // @[ALU.scala 36:31]
+  wire  _T_8 = $signed(_T_7) == 32'sh0; // @[ALU.scala 38:28]
   wire  _T_9 = 4'h3 == io_sel; // @[Conditional.scala 37:30]
-  wire [31:0] _T_11 = $signed(io_operand1) | $signed(io_operand2); // @[ALU.scala 40:26]
+  wire [31:0] _T_11 = $signed(io_operand1) | $signed(io_operand2); // @[ALU.scala 41:32]
   wire  _T_12 = 4'h4 == io_sel; // @[Conditional.scala 37:30]
-  wire [31:0] _T_14 = $signed(io_operand1) & $signed(io_operand2); // @[ALU.scala 43:26]
+  wire [31:0] _T_14 = $signed(io_operand1) & $signed(io_operand2); // @[ALU.scala 44:32]
   wire  _T_15 = 4'h5 == io_sel; // @[Conditional.scala 37:30]
-  wire [63:0] _T_16 = $signed(io_operand1) * $signed(io_operand2); // @[ALU.scala 46:26]
+  wire [63:0] _T_16 = $signed(io_operand1) * $signed(io_operand2); // @[ALU.scala 47:32]
   wire  _T_17 = 4'h6 == io_sel; // @[Conditional.scala 37:30]
   wire  _T_18 = 4'h7 == io_sel; // @[Conditional.scala 37:30]
   wire  _T_19 = 4'h8 == io_sel; // @[Conditional.scala 37:30]
-  wire  _T_23 = $signed(reg_) > 32'sh0; // @[ALU.scala 56:28]
+  wire [31:0] _T_22 = $signed(io_operand2) - $signed(io_operand1); // @[ALU.scala 56:31]
+  wire  _T_23 = $signed(_T_22) > 32'sh0; // @[ALU.scala 58:29]
   wire  _T_24 = 4'h9 == io_sel; // @[Conditional.scala 37:30]
-  wire  _T_28 = $signed(reg_) != 32'sh0; // @[ALU.scala 60:28]
-  wire [31:0] _GEN_0 = _T_24 ? $signed(_T_7) : $signed(reg_); // @[Conditional.scala 39:67]
+  wire  _T_28 = $signed(_T_7) != 32'sh0; // @[ALU.scala 63:28]
+  wire [31:0] _GEN_0 = _T_24 ? $signed(_T_7) : $signed(32'sh0); // @[Conditional.scala 39:67]
   wire  _GEN_1 = _T_24 & _T_28; // @[Conditional.scala 39:67]
-  wire [31:0] _GEN_2 = _T_19 ? $signed(_T_7) : $signed(_GEN_0); // @[Conditional.scala 39:67]
+  wire [31:0] _GEN_2 = _T_19 ? $signed(_T_22) : $signed(_GEN_0); // @[Conditional.scala 39:67]
   wire  _GEN_3 = _T_19 ? _T_23 : _GEN_1; // @[Conditional.scala 39:67]
   wire [31:0] _GEN_4 = _T_18 ? $signed(io_operand2) : $signed(_GEN_2); // @[Conditional.scala 39:67]
   wire  _GEN_5 = _T_18 ? 1'h0 : _GEN_3; // @[Conditional.scala 39:67]
@@ -671,59 +666,8 @@ module ALU(
   wire [63:0] _GEN_14 = _T_4 ? $signed({{32{_T_7[31]}},_T_7}) : $signed(_GEN_12); // @[Conditional.scala 39:67]
   wire  _GEN_15 = _T_4 ? _T_8 : _GEN_13; // @[Conditional.scala 39:67]
   wire [63:0] _GEN_16 = _T ? $signed({{32{_T_3[31]}},_T_3}) : $signed(_GEN_14); // @[Conditional.scala 40:58]
-  assign io_result = reg_; // @[ALU.scala 63:13]
-  assign io_compResult = _T ? 1'h0 : _GEN_15; // @[ALU.scala 30:17 ALU.scala 37:21 ALU.scala 56:21 ALU.scala 60:21]
-`ifdef RANDOMIZE_GARBAGE_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_INVALID_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_REG_INIT
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-`define RANDOMIZE
-`endif
-`ifndef RANDOM
-`define RANDOM $random
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-  integer initvar;
-`endif
-`ifndef SYNTHESIS
-`ifdef FIRRTL_BEFORE_INITIAL
-`FIRRTL_BEFORE_INITIAL
-`endif
-initial begin
-  `ifdef RANDOMIZE
-    `ifdef INIT_RANDOM
-      `INIT_RANDOM
-    `endif
-    `ifndef VERILATOR
-      `ifdef RANDOMIZE_DELAY
-        #`RANDOMIZE_DELAY begin end
-      `else
-        #0.002 begin end
-      `endif
-    `endif
-`ifdef RANDOMIZE_REG_INIT
-  _RAND_0 = {1{`RANDOM}};
-  reg_ = _RAND_0[31:0];
-`endif // RANDOMIZE_REG_INIT
-  `endif // RANDOMIZE
-end // initial
-`ifdef FIRRTL_AFTER_INITIAL
-`FIRRTL_AFTER_INITIAL
-`endif
-`endif // SYNTHESIS
-  always @(posedge clock) begin
-    if (reset) begin
-      reg_ <= 32'sh0;
-    end else begin
-      reg_ <= _GEN_16[31:0];
-    end
-  end
+  assign io_result = _GEN_16[31:0]; // @[ALU.scala 28:13 ALU.scala 33:17 ALU.scala 37:17 ALU.scala 41:17 ALU.scala 44:17 ALU.scala 47:17 ALU.scala 50:17 ALU.scala 53:17 ALU.scala 57:17 ALU.scala 62:17]
+  assign io_compResult = _T ? 1'h0 : _GEN_15; // @[ALU.scala 30:17 ALU.scala 38:21 ALU.scala 58:21 ALU.scala 63:21]
 endmodule
 module CPUTop(
   input         clock,
@@ -784,15 +728,13 @@ module CPUTop(
   wire  controlUnit_io_regWrite; // @[CPUTop.scala 27:27]
   wire  controlUnit_io_regDest; // @[CPUTop.scala 27:27]
   wire  controlUnit_io_stop; // @[CPUTop.scala 27:27]
-  wire  alu_clock; // @[CPUTop.scala 28:19]
-  wire  alu_reset; // @[CPUTop.scala 28:19]
   wire [31:0] alu_io_operand1; // @[CPUTop.scala 28:19]
   wire [31:0] alu_io_operand2; // @[CPUTop.scala 28:19]
   wire [3:0] alu_io_sel; // @[CPUTop.scala 28:19]
   wire [31:0] alu_io_result; // @[CPUTop.scala 28:19]
   wire  alu_io_compResult; // @[CPUTop.scala 28:19]
   wire  _T = controlUnit_io_jumpEnable & alu_io_compResult; // @[CPUTop.scala 33:77]
-  wire [31:0] _T_14 = {{16'd0}, programMemory_io_instructionRead[15:0]}; // @[CPUTop.scala 58:115]
+  wire [31:0] _T_14 = {{16'd0}, programMemory_io_instructionRead[15:0]}; // @[CPUTop.scala 58:88]
   wire [31:0] _T_17 = alu_io_result; // @[CPUTop.scala 62:42]
   ProgramCounter programCounter ( // @[CPUTop.scala 23:30]
     .clock(programCounter_clock),
@@ -848,8 +790,6 @@ module CPUTop(
     .io_stop(controlUnit_io_stop)
   );
   ALU alu ( // @[CPUTop.scala 28:19]
-    .clock(alu_clock),
-    .reset(alu_reset),
     .io_operand1(alu_io_operand1),
     .io_operand2(alu_io_operand2),
     .io_sel(alu_io_sel),
@@ -868,7 +808,7 @@ module CPUTop(
   assign dataMemory_clock = clock;
   assign dataMemory_io_address = _T_17[15:0]; // @[CPUTop.scala 62:25]
   assign dataMemory_io_writeEnable = controlUnit_io_memWrite; // @[CPUTop.scala 64:29]
-  assign dataMemory_io_dataWrite = registerFile_io_readData2; // @[CPUTop.scala 63:27]
+  assign dataMemory_io_dataWrite = registerFile_io_readData1; // @[CPUTop.scala 63:27]
   assign dataMemory_io_testerEnable = io_testerDataMemEnable; // @[CPUTop.scala 80:30]
   assign dataMemory_io_testerAddress = io_testerDataMemAddress; // @[CPUTop.scala 77:31]
   assign dataMemory_io_testerWriteEnable = io_testerDataMemWriteEnable; // @[CPUTop.scala 81:35]
@@ -881,14 +821,12 @@ module CPUTop(
   assign programMemory_io_testerDataWrite = io_testerProgMemDataWrite; // @[CPUTop.scala 73:36]
   assign registerFile_clock = clock;
   assign registerFile_io_readReg1 = programMemory_io_instructionRead[20:16]; // @[CPUTop.scala 51:28]
-  assign registerFile_io_readReg2 = controlUnit_io_regDest ? programMemory_io_instructionRead[25:21] : programMemory_io_instructionRead[15:11]; // @[CPUTop.scala 52:28]
+  assign registerFile_io_readReg2 = controlUnit_io_regDest ? programMemory_io_instructionRead[15:11] : programMemory_io_instructionRead[25:21]; // @[CPUTop.scala 52:28]
   assign registerFile_io_regWrite = controlUnit_io_regWrite; // @[CPUTop.scala 54:28]
-  assign registerFile_io_writeData = controlUnit_io_memToReg ? $signed(alu_io_result) : $signed(dataMemory_io_dataRead); // @[CPUTop.scala 53:29]
+  assign registerFile_io_writeData = controlUnit_io_memToReg ? $signed(dataMemory_io_dataRead) : $signed(alu_io_result); // @[CPUTop.scala 53:29]
   assign registerFile_io_writeReg = programMemory_io_instructionRead[25:21]; // @[CPUTop.scala 50:28]
   assign controlUnit_io_opcode = programMemory_io_instructionRead[31:26]; // @[CPUTop.scala 46:25]
-  assign alu_clock = clock;
-  assign alu_reset = reset;
   assign alu_io_operand1 = registerFile_io_readData1; // @[CPUTop.scala 57:19]
-  assign alu_io_operand2 = controlUnit_io_ALUSrc ? registerFile_io_readData2 : _T_14; // @[CPUTop.scala 58:19]
+  assign alu_io_operand2 = controlUnit_io_ALUSrc ? _T_14 : registerFile_io_readData2; // @[CPUTop.scala 58:19]
   assign alu_io_sel = controlUnit_io_ALUOpcode; // @[CPUTop.scala 59:14]
 endmodule
