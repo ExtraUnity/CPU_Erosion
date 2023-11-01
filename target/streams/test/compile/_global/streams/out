@@ -1,7 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\test\scala\ControlUnitTester.scala:62:19: value memRead is not a member of chisel3.Bundle{val opcode: chisel3.UInt; val JR: chisel3.Bool; val jumpEnable: chisel3.Bool; val memToReg: chisel3.Bool; val memWrite: chisel3.Bool; val ALUOpcode: chisel3.UInt; val ALUSrc: chisel3.Bool; val regWrite: chisel3.Bool; val regDest: chisel3.Bool; val stop: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m    expect(dut.io.memRead, true.B)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\test\scala\ControlUnitTester.scala:68:19: value memRead is not a member of chisel3.Bundle{val opcode: chisel3.UInt; val JR: chisel3.Bool; val jumpEnable: chisel3.Bool; val memToReg: chisel3.Bool; val memWrite: chisel3.Bool; val ALUOpcode: chisel3.UInt; val ALUSrc: chisel3.Bool; val regWrite: chisel3.Bool; val regDest: chisel3.Bool; val stop: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m    expect(dut.io.memRead, true.B)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 129 feature warnings; re-run with -feature for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
