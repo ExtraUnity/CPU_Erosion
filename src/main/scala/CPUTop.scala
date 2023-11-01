@@ -49,18 +49,18 @@ class CPUTop extends Module {
   //RegisterFile
   registerFile.io.writeReg := programMemory.io.instructionRead(25,21)
   registerFile.io.readReg1 := programMemory.io.instructionRead(20,16)
-  registerFile.io.readReg2 := Mux(controlUnit.io.regDest, programMemory.io.instructionRead(25,21), programMemory.io.instructionRead(15,11))
-  registerFile.io.writeData := Mux(controlUnit.io.memToReg, alu.io.result, dataMemory.io.dataRead.asSInt()).asUInt() 
+  registerFile.io.readReg2 := Mux(controlUnit.io.regDest, programMemory.io.instructionRead(15,11), programMemory.io.instructionRead(25,21))
+  registerFile.io.writeData := Mux(controlUnit.io.memToReg, dataMemory.io.dataRead.asSInt(), alu.io.result).asUInt() 
   registerFile.io.regWrite := controlUnit.io.regWrite
 
   //ALU
   alu.io.operand1 := registerFile.io.readData1.asSInt()
-  alu.io.operand2 := Mux(controlUnit.io.ALUSrc, registerFile.io.readData2, programMemory.io.instructionRead(15,0) | 0.U(32.W)).asSInt
+  alu.io.operand2 := Mux(controlUnit.io.ALUSrc, programMemory.io.instructionRead(15,0) | 0.U(32.W), registerFile.io.readData2).asSInt
   alu.io.sel := controlUnit.io.ALUOpcode
 
   //DataMemory
   dataMemory.io.address := alu.io.result.asUInt
-  dataMemory.io.dataWrite := registerFile.io.readData2
+  dataMemory.io.dataWrite := registerFile.io.readData1
   dataMemory.io.writeEnable := controlUnit.io.memWrite
 
 
