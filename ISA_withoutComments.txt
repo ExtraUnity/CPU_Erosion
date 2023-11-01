@@ -7,8 +7,6 @@ JGT R1 R3 75
     // Inner-loop start
     SUB R2 R2 R2           
     JGT R2 R3 71             
-
-    // Fetching the memory address of out_image(x,y) into R4     
         MULI R4 R2 20           
         ADD R4 R4 R1            
         ADDI R4 R4 400         
@@ -33,7 +31,7 @@ JGT R1 R3 75
             SD R0 R4             
     
     // Processing inner pixel "else"
-        // Fetching all the values of pixel: in_image(x-1,y), in_image(x+1,y), in_image(x,y-1), in_image(x,y+1) into Registers [7; 10]
+        // Fetching the values of neighboring pixel in input image into Registers [7; 10]
         MULI R7 R2 20          
         SUBI R11 R1 1         
         ADD R7 R7 R11         
