@@ -2,23 +2,24 @@ LI R0 0
 LI R3 19                  
 LI R15 255                     
 SUB R1 R1 R1                  
-JGT R1 R3 50   ; END              
+JGT R1 R3 50              
     SUB R2 R2 R2           
-    JGT R2 R3 48        ; ADDI R1 R1 1      
+    JGT R2 R3 49 
         MULI R4 R2 20           
         ADD R4 R4 R1            
         ADDI R4 R4 400         
-        JEQ R1 R0 16     ; SD R0 R4      
+        JEQ R1 R0 16  
         JEQ R2 R0 16          
         JEQ R1 R3 16           
         JEQ R2 R3 16          
-        JR 17             ;  MULI R5 R2 20     
-            SD R0 R4             
+        JR 18    
+            SD R4 R0      
+            JR 47       
         MULI R5 R2 20         
-        ADD R5 R4 R1       
+        ADD R5 R5 R1       
         LD R6 R5               
-        JNEQ R6 R0 22   ;  MULI R7 R2 20           
-            SD R0 R4             
+        JNEQ R6 R0 23    
+            SD R4 R0             
         MULI R7 R2 20          
         SUBI R11 R1 1         
         ADD R7 R7 R11         
@@ -31,22 +32,22 @@ JGT R1 R3 50   ; END
         MULI R9 R13 20          
         ADD R9 R9 R1            
         LD R9 R9              
-        SUBI R14 R2 1        
+        ADDI R14 R2 1        
         MULI R10 R14 20        
         ADD R10 R10 R1        
         LD R10 R10           
-            JEQ R7 R0 43  ;     SD R0 R4    
-            JEQ R8 R0 43        
-            JEQ R9 R0 43        
-            JEQ R10 R0 43      
-            JR 45         ;     SD R4 R15 
-            SD R0 R4            
-            JR 46          ;        ADDI R2 R2 1     
+            JEQ R7 R0 44  
+            JEQ R8 R0 44        
+            JEQ R9 R0 44        
+            JEQ R10 R0 44      
+            JR 46       
+            SD R4 R0            
+            JR 47         
             SD R4 R15           
     ADDI R2 R2 1               
-    JR 7 ;     JGT R2 R3 71 // ADDI R1 R1 1      
+    JR 7 ;     
 ADDI R1 R1 1 
-JR 5 ; JGT R1 R3 75   ; END     
+JR 5    
 END
 
 ___________________________________________________________________________________________________
@@ -62,7 +63,7 @@ Arithmetic and Logic:
 Data transfer:
 // Load immidiate           LI R1 6         ;     R1 = 6
 // Load data                LD R1, R2       ;     R1 = memory(R2)
-// Store data               SD R1, R2       ;     memory(R2) = R1 
+// Store data               SD R1, R2       ;     memory(R1) = R2 
 
 
 Control and Flow:
