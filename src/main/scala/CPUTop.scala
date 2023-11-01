@@ -27,13 +27,45 @@ class CPUTop extends Module {
   val controlUnit = Module(new ControlUnit())
   val alu = Module(new ALU())
 
-  //Connecting the modules
-  //programCounter.io.run := io.run
-  //programMemory.io.address := programCounter.io.programCounter
+  //ProgramCounter
+  programCounter.io.run := io.run
+  programCounter.io.stop := controlUnit.io.stop
+  programCounter.io.jump := controlUnit.io.JR || (controlUnit.io.jumpEnable && alu.io.compResult)
+  programCounter.io.programCounterJump := programMemory.io.instructionRead(15,0)
+  
 
-  ////////////////////////////////////////////
-  //Continue here with your connections
-  ////////////////////////////////////////////
+
+
+
+
+  //ProgramMemory
+  programMemory.io.address := programCounter.io.programCounter
+
+
+  //ControlUnit
+  controlUnit.io.opcode := programMemory.io.instructionRead(31,26)
+  
+
+  //RegisterFile
+  registerFile.io.writeReg := programMemory.io.instructionRead(25,21)
+  registerFile.io.readReg1 := programMemory.io.instructionRead(20,16)
+  registerFile.io.readReg2 := Mux(controlUnit.io.regDest, programMemory.io.instructionRead(25,21), programMemory.io.instructionRead(15,11))
+  registerFile.io.writeData := Mux(controlUnit.io.memToReg, alu.io.result, dataMemory.io.dataRead.asSInt()).asUInt() 
+  registerFile.io.regWrite := controlUnit.io.regWrite
+
+  //ALU
+  alu.io.operand1 := registerFile.io.readData1.asSInt()
+  alu.io.operand2 := Mux(controlUnit.io.ALUSrc, registerFile.io.readData2, programMemory.io.instructionRead(15,0) | 0.U(32.W)).asSInt
+  alu.io.sel := controlUnit.io.ALUOpcode
+
+  //DataMemory
+  dataMemory.io.address := alu.io.result.asUInt
+  dataMemory.io.dataWrite := registerFile.io.readData2
+  dataMemory.io.writeEnable := controlUnit.io.memWrite
+
+
+  //DONE
+  io.done := controlUnit.io.stop
 
   //This signals are used by the tester for loading the program to the program memory, do not touch
   programMemory.io.testerAddress := io.testerProgMemAddress
