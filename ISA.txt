@@ -20,17 +20,17 @@ JGT R1 R3 75                    ; 'for(x from 0 to 19)'
         JEQ R2 R3 22            ; if (y==19)
         JR 24                   ; else... skip "Black Pixel"
         // Black pixel     
-            SD R0 R4                ; 'memory(addressXY_out) = 0             -> Set value of AddressXY_out to 0'
+            SD R4 R0                ; 'memory(addressXY_out) = 0             -> Set value of AddressXY_out to 0'
 
     // Fetching the memory address of in_image(x,y) into R5     
         MULI R5 R2 20           ; 'addressXY_in = y*20'                  -> using formula: y*n+x
-        ADD R5 R4 R1            ; 'addressXY_in = adressXY_in + x'       -> using formula: y*n+x 
+        ADD R5 R5 R1            ; 'addressXY_in = adressXY_in + x'       -> using formula: y*n+x 
         LD R6 R5                ;  val = memory(addressXY_in)            -> Get the value of addressXY_in and store into R6
 
 
     // Processing inner pixel "if"
-        JNEQ R6 R0 35           ;  if (addressXY_in == 0) then... if not, then skip next line"
-            SD R0 R4                ;  'memory(addressXY_out) = 0             -> Set value of AddressXY_out to 0'    
+        JNEQ R6 R0 35           ;  if (val == 0) then... if not, then skip next line"
+            SD R4 R0                ;  'memory(addressXY_out) = 0             -> Set value of AddressXY_out to 0'    
     
     // Processing inner pixel "else"
         // Fetching all the values of pixel: in_image(x-1,y), in_image(x+1,y), in_image(x,y-1), in_image(x,y+1) into Registers [7; 10]
@@ -61,10 +61,10 @@ JGT R1 R3 75                    ; 'for(x from 0 to 19)'
             JEQ R10 R0 64       ; if (in_image(x,y+1) == 0)    
             JR 66               ; else... skip Erode and go to line 67
             //Erode
-            SD R0 R4            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
+            SD R4 R0            ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 0'
             JR 69               ; After erosion, go to next pixel
             //Do not erode
-            SD R4 R15           ; 'memory(addressXY_out) = 0  -> Set value of AddressXY_out to 255'
+            SD R4 R15           ; 'memory(addressXY_out) = 255  -> Set value of AddressXY_out to 255'
             
     ADDI R2 R2 1                ; y++
     JR 9
@@ -88,7 +88,7 @@ Arithmetic and Logic:
 Data transfer:
 // Load immidiate           LI R1 6         ;     R1 = 6
 // Load data                LD R1, R2       ;     R1 = memory(R2)
-// Store data               SD R1, R2       ;     memory(R2) = R1 
+// Store data               SD R1, R2       ;     memory(R1) = R2 
 
 
 Control and Flow:
