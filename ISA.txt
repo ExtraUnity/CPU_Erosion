@@ -21,8 +21,8 @@ JGT R1 R3 50            ; for(x from 0 to 19)
             SD R4 R0                ; value_out = 0     
             JR 47
         MULI R7 R2 20           ; address_in_Left = y * 20   
-        SUBI R11 R1 1           ; reft = (x-1) 
-        ADD R7 R7 R11           ; address_in_Left = address_in_Left + reft 
+        SUBI R11 R1 1           ; left = (x-1) 
+        ADD R7 R7 R11           ; address_in_Left = address_in_Left + left 
         LD R7 R7            ; ValueIn_Left = memory(address_in_Left)
         MULI R8 R2 20           ; address_in_Right = y * 20   
         ADDI R12 R1 1           ; right = (x+1)     
