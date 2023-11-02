@@ -15,11 +15,11 @@ JGT R1 R3 50
         JR 18    
             SD R4 R0      
             JR 47       
-        MULI R5 R2 20         
-        ADD R5 R5 R1       
+        SUBI R5 R4 400     
         LD R6 R5               
         JNEQ R6 R0 23    
-            SD R4 R0             
+            SD R4 R0  
+            JR 47           
         MULI R7 R2 20          
         SUBI R11 R1 1         
         ADD R7 R7 R11         

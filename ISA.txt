@@ -15,11 +15,11 @@ JGT R1 R3 50            ; for(x from 0 to 19)
         JR 18               ; else goto 18
             SD R4 R0            ; value_out = memory(adress_out) = 0
             JR 47               ; continue - goto 47
-        MULI R5 R2 20       ; address_in = y * 20 
-        ADD R5 R5 R1        ; address_in = address_in + x
+        SUBI R5 R4 400          ; address_in = address_out - 400
         LD R6 R5            ; value_in = memory(address_in)   
-        JNEQ R6 R0 23       ; if(value_in == 0)
+        JNEQ R6 R0 23       ; if(value_in == 0) ;MULI R7
             SD R4 R0                ; value_out = 0     
+            JR 47
         MULI R7 R2 20           ; address_in_Left = y * 20   
         SUBI R11 R1 1           ; reft = (x-1) 
         ADD R7 R7 R11           ; address_in_Left = address_in_Left + reft 

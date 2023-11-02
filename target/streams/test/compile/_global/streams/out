@@ -1,7 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\test\scala\Programs.scala:10:5: ')' expected but string literal found.[0m
-[0m[[0m[31merror[0m] [0m[0m    "b00100100000000000000000000000000".U(32.W),[0m
-[0m[[0m[31merror[0m] [0m[0m    ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\cvede\OneDrive - Danmarks Tekniske Universitet\Skrivebord\Uni\Semester 3\02132 Computersystemer\Project 2\CPU_Erosion\src\test\scala\Programs.scala:10:48: ';' expected but ',' found.[0m
-[0m[[0m[31merror[0m] [0m[0m    "b00100100000000000000000000000000".U(32.W),[0m
-[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 54 feature warnings; re-run with -feature for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
