@@ -54,6 +54,7 @@ ________________________________________________________________________________
 Instruction-Set Architecture (ISA)
 
 Arithmetic and Logic:
+// Addition                 ADD R1 R2 R3    ;     R1 = R2 + R3
 // Subtraction              SUB R1 R2 R3    ;     R1 = R2 - R3 
 // Multiplication           MUL R1, R2, R3  ;     R1 = R2 * R3
 // Immediate Add.           ADDI R1 R2 4    ;     R1 = R2 + 4
@@ -68,8 +69,8 @@ Data transfer:
 
 Control and Flow:
 // Jump                     JR 7            ;     goto inst. 7
-// Jump if greater than     JGT R2 R3 10    ;     if(R2>R3) goto inst. 10
-// Jump if equal            JEQ R1 R2 20    ;     if (R1==R2) goto inst. 20
-// Jump if not equal        JNEQ R2 R3 8    ;     if (R2 != R3) goto inst. 8
-// END                                      ;     stop program
+// Jump if greater than     JGT R1 R2 10    ;     if(R1 > R2) goto inst. 10
+// Jump if equal            JEQ R1 R2 20    ;     if (R1 == R2) goto inst. 20
+// Jump if not equal        JNEQ R1 R2 8    ;     if (R1 != R2) goto inst. 8
+// END                                      ;     terminates execution
 
