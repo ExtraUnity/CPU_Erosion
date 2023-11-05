@@ -17,7 +17,7 @@ JGT R1 R3 50            ; for(x from 0 to 19)
             JR 47               ; continue - goto 47
         SUBI R5 R4 400          ; address_in = address_out - 400
         LD R6 R5            ; value_in = memory(address_in)   
-        JNEQ R6 R0 23       ; if(value_in == 0) ;MULI R7
+        JNEQ R6 R0 23       ; if(value_in == 0)
             SD R4 R0                ; value_out = 0     
             JR 47
         MULI R7 R2 20           ; address_in_Left = y * 20   
