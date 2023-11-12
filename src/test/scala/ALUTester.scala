@@ -13,7 +13,6 @@ class ALUTester(dut: ALU) extends PeekPokeTester(dut) {
         step(1)
         expect(dut.io.result,6)
 
-
         //TEST SUB
         poke(dut.io.operand1,2)
         poke(dut.io.operand2,4)
@@ -55,6 +54,22 @@ class ALUTester(dut: ALU) extends PeekPokeTester(dut) {
         poke(dut.io.sel,"b111".U)
         step(1)
         expect(dut.io.result,4)
+
+        //TEST JGT
+        poke(dut.io.operand1, 19)
+        poke(dut.io.operand2, 20)
+        poke(dut.io.sel, "b1000".U)
+        step(1)
+        expect(dut.io.compResult, true.B)
+
+
+        //TEST JNEQ
+        poke(dut.io.operand1, 19)
+        poke(dut.io.operand2, 20)
+        poke(dut.io.sel, "b1001".U)
+        step(1)
+        expect(dut.io.compResult, true.B)
+        
 }
 
 object ALUTester {

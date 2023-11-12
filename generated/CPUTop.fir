@@ -255,7 +255,7 @@ circuit CPUTop :
                 else : @[Conditional.scala 39:67]
                   node _T_19 = eq(UInt<4>("h08"), io.sel) @[Conditional.scala 37:30]
                   when _T_19 : @[Conditional.scala 39:67]
-                    node _T_20 = sub(io.operand2, io.operand1) @[ALU.scala 56:31]
+                    node _T_20 = sub(io.operand1, io.operand2) @[ALU.scala 56:31]
                     node _T_21 = tail(_T_20, 1) @[ALU.scala 56:31]
                     node _T_22 = asSInt(_T_21) @[ALU.scala 56:31]
                     io.result <= _T_22 @[ALU.scala 57:17]
