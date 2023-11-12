@@ -32,19 +32,12 @@ class CPUTop extends Module {
   programCounter.io.stop := controlUnit.io.stop
   programCounter.io.jump := controlUnit.io.JR || (controlUnit.io.jumpEnable && alu.io.compResult)
   programCounter.io.programCounterJump := programMemory.io.instructionRead(15,0)
-  
-
-
-
-
 
   //ProgramMemory
   programMemory.io.address := programCounter.io.programCounter
 
-
   //ControlUnit
   controlUnit.io.opcode := programMemory.io.instructionRead(31,26)
-  
 
   //RegisterFile
   registerFile.io.writeReg := programMemory.io.instructionRead(25,21)
@@ -62,7 +55,6 @@ class CPUTop extends Module {
   dataMemory.io.address := alu.io.result.asUInt
   dataMemory.io.dataWrite := registerFile.io.readData1
   dataMemory.io.writeEnable := controlUnit.io.memWrite
-
 
   //DONE
   io.done := controlUnit.io.stop

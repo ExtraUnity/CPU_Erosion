@@ -7,22 +7,22 @@ JGT R1 R3 50            ; for(x from 0 to 19)
     JGT R2 R3 49            ; for(y from 0 to 19)
         MULI R4 R2 20       ; address_out = y * 20    
         ADD R4 R4 R1        ; address_out = address_out + x
-        ADDI R4 R4 400      ; address_out = adress_out + 400   
+        ADDI R4 R4 400      ; address_out = address_out + 400   
         JEQ R1 R0 16        ; if (x == 0) then goto 16
         JEQ R2 R0 16        ; if (x == 0) then goto 16
         JEQ R1 R3 16        ; if (x == 19) then goto 16
         JEQ R2 R3 16        ; if (x == 19) then goto 16
         JR 18               ; else goto 18
-            SD R4 R0            ; value_out = memory(adress_out) = 0
+            SD R4 R0            ; value_out = memory(address_out) = 0
             JR 47               ; continue - goto 47
         SUBI R5 R4 400          ; address_in = address_out - 400
         LD R6 R5            ; value_in = memory(address_in)   
-        JNEQ R6 R0 23       ; if(value_in == 0) ;MULI R7
+        JNEQ R6 R0 23       ; if(value_in == 0)
             SD R4 R0                ; value_out = 0     
             JR 47
         MULI R7 R2 20           ; address_in_Left = y * 20   
-        SUBI R11 R1 1           ; reft = (x-1) 
-        ADD R7 R7 R11           ; address_in_Left = address_in_Left + reft 
+        SUBI R11 R1 1           ; left = (x-1) 
+        ADD R7 R7 R11           ; address_in_Left = address_in_Left + left 
         LD R7 R7            ; ValueIn_Left = memory(address_in_Left)
         MULI R8 R2 20           ; address_in_Right = y * 20   
         ADDI R12 R1 1           ; right = (x+1)     
@@ -54,6 +54,7 @@ ________________________________________________________________________________
 Instruction-Set Architecture (ISA)
 
 Arithmetic and Logic:
+// Addition                 ADD R1 R2 R3    ;     R1 = R2 + R3
 // Subtraction              SUB R1 R2 R3    ;     R1 = R2 - R3 
 // Multiplication           MUL R1, R2, R3  ;     R1 = R2 * R3
 // Immediate Add.           ADDI R1 R2 4    ;     R1 = R2 + 4
@@ -68,8 +69,8 @@ Data transfer:
 
 Control and Flow:
 // Jump                     JR 7            ;     goto inst. 7
-// Jump if greater than     JGT R2 R3 10    ;     if(R2>R3) goto inst. 10
-// Jump if equal            JEQ R1 R2 20    ;     if (R1==R2) goto inst. 20
-// Jump if not equal        JNEQ R2 R3 8    ;     if (R2 != R3) goto inst. 8
-// END                                      ;     stop program
+// Jump if greater than     JGT R1 R2 10    ;     if(R1 > R2) goto inst. 10
+// Jump if equal            JEQ R1 R2 20    ;     if (R1 == R2) goto inst. 20
+// Jump if not equal        JNEQ R1 R2 8    ;     if (R1 != R2) goto inst. 8
+// END                                      ;     terminates execution
 
